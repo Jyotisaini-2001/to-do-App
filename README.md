@@ -1,4 +1,4 @@
-# Project Setup
+# Project Overview
 
 This repository contains a project that requires the following steps for setup and execution.
 
@@ -14,12 +14,13 @@ This repository contains a project that requires the following steps for setup a
 6. npm start 
 
  ## Functionalites of the app:
--  We can add new tasks. The task will be added in the pending state initially.
+-  We can add tasks. The task will be added in the pending state initially.
 -  Users can edit and delete tasks by clicking on the three dots.
 -  In the edit functionality, users can edit the priority and status of tasks only.
 -  Users can delete tasks by clicking on the delete option.
 -  Tasks can be filtered based on assignee name and date.
 -  There are three states for tasks: Pending, In Progress, and Completed.
+-  User can change task state when ever one stage of task is done.
   
 ## Used:
 - Redux is used to manage the application's state, including storing the tasks and updating the state when adding or removing tasks.
