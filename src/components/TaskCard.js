@@ -11,7 +11,7 @@ const TaskCard = ({ task }) => {
   const [showOptions, setShowOptions] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false); // State for delete confirmation modal
   const dispatch = useDispatch();
-
+console.log(task);
   const [formData, setFormData] = useState({
     title: task.title,
     description: task.description,

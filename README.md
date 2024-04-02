@@ -14,7 +14,7 @@ This repository contains a project that requires the following steps for setup a
 6. npm start 
 
  ## Functionalites of the app:
--  We can add new tasks. The task will be added in the pending state initially.
+-  We can add tasks. The task will be added in the pending state initially.
 -  Users can edit and delete tasks by clicking on the three dots.
 -  In the edit functionality, users can edit the priority and status of tasks only.
 -  Users can delete tasks by clicking on the delete option.

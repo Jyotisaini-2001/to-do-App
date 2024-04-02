@@ -21,7 +21,7 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         // Pending: [...state.Pending, { ...task, id: taskId }],
-        Pending: [...state.Pending, taskWithId],
+        Pending: state.Pending ? [...state.Pending, taskWithId] : [taskWithId],
       };
     }
 
@@ -71,14 +71,32 @@ const taskReducer = (state = initialState, action) => {
 
       return updatedState;
     }
+    // case LOAD_TASKS: {
+    //   // Load tasks logic
+    //   const loadedTasks = action.payload;
+    //   return {
+    //     ...state,
+    //     ...loadedTasks, // Replace the entire tasks state with the loaded tasks
+    //   };
+    // }
     case LOAD_TASKS: {
       // Load tasks logic
       const loadedTasks = action.payload;
-      return {
-        ...state,
-        ...loadedTasks, // Replace the entire tasks state with the loaded tasks
-      };
+    
+      // Initialize an updated state with the initial state
+      let updatedState = { ...initialState };
+    
+      // Iterate over each status (Pending, InProgress, Completed)
+      Object.keys(updatedState).forEach(status => {
+        // If loaded tasks contain tasks for this status, update the state accordingly
+        if (loadedTasks.hasOwnProperty(status)) {
+          updatedState[status] = loadedTasks[status];
+        }
+      });
+    
+      return updatedState;
     }
+    
 
     default:
       return state;

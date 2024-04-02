@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TaskInput from "./TaskInput";
 import TaskList from "./TaskList";
@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [showTaskForm, setShowTaskForm] = useState(false);
   const [assigneeFilter, setAssigneeFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("");
- 
+
   const [startDate, setStartDate] = useState(null); // Declare startDate state
   const [endDate, setEndDate] = useState(null);
 
@@ -24,8 +24,8 @@ const Dashboard = () => {
     // console.log("Loading tasks from local storage...");
     const savedTasks = localStorage.getItem("tasks");
     if (savedTasks) {
-      // console.log("Tasks found in local storage:", JSON.parse(savedTasks));
-      dispatch({ type: 'LOAD_TASKS', payload: JSON.parse(savedTasks) });
+      console.log("Tasks found in local storage:", JSON.parse(savedTasks));
+      dispatch({ type: "LOAD_TASKS", payload: JSON.parse(savedTasks) });
     } else {
       // console.log("No tasks found in local storage.");
     }
@@ -36,12 +36,10 @@ const Dashboard = () => {
     // console.log("Saving tasks to local storage:", tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-//  console.log('this is task',tasks);
+  //  console.log('this is task',tasks);
   const handleToggleTaskForm = () => {
     setShowTaskForm((prevState) => !prevState);
   };
- 
-  
 
   // console.log(tasks);
 
@@ -136,15 +134,12 @@ const Dashboard = () => {
           </div>
         </div>
 
-      
-
         {/* Cards section with horizontal scrolling */}
         <TaskList
-        tasks={tasks}
-        assigneeFilter={assigneeFilter}
-        priorityFilter={priorityFilter}
-       
-      />
+          tasks={tasks}
+          assigneeFilter={assigneeFilter}
+          priorityFilter={priorityFilter}
+        />
 
         <div className="row   add-button2">
           <div className="col text-center">
