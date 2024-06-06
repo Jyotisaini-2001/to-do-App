@@ -1,4 +1,4 @@
-# Project Setup
+# Project Overview
 
 This repository contains a project that requires the following steps for setup and execution.
 
@@ -19,8 +19,12 @@ This repository contains a project that requires the following steps for setup a
 -  In the edit functionality, users can edit the priority and status of tasks only.
 -  Users can delete tasks by clicking on the delete option.
 -  There are three states for tasks: Pending, In Progress, and Completed.
+<<<<<<< HEAD
 -  OpenWeatherAPI integration has been added to fetch weather data based on location.
 -  Authentication feature has been implemented using Redux for state management.
+=======
+-  User can change task state when ever one stage of task is done.
+>>>>>>> 6e5fa5c58bd339463c7aadf31f3d01e0cef49cde
   
 ## Used:
 - Redux is used to manage the application's state, including storing the tasks and updating the state when adding or removing tasks.
