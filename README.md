@@ -18,8 +18,9 @@ This repository contains a project that requires the following steps for setup a
 -  Users can edit and delete tasks by clicking on the three dots.
 -  In the edit functionality, users can edit the priority and status of tasks only.
 -  Users can delete tasks by clicking on the delete option.
--  Tasks can be filtered based on assignee name and date.
 -  There are three states for tasks: Pending, In Progress, and Completed.
+-  OpenWeatherAPI integration has been added to fetch weather data based on location.
+-  Authentication feature has been implemented using Redux for state management.
   
 ## Used:
 - Redux is used to manage the application's state, including storing the tasks and updating the state when adding or removing tasks.
@@ -28,3 +29,10 @@ This repository contains a project that requires the following steps for setup a
 ## Additionally:
 - the capability to mark tasks as completed without deleting them has been added, involving toggling the task's state and styling.
 - Persistent storage has been implemented, saving tasks to local storage so that tasks are not lost on page reload.
+
+## Screenshots
+
+![Screenshot 1](./todo1.png)
+![Screenshot 2](./todo2.png)
+![Screenshot 3](./todo3.png)
+![Screenshot 3](./todo4.png)

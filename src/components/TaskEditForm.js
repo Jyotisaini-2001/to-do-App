@@ -50,15 +50,7 @@ const EditForm = ({
               readOnly
             />
           </Form.Group>
-          <Form.Group controlId="assignee">
-            <Form.Label>Assignee:</Form.Label>
-            <Form.Control
-              type="text"
-              name="assignee"
-              value={formData.assignee}
-              readOnly
-            />
-          </Form.Group>
+        
           <Form.Group controlId="priority">
             <Form.Label>Priority:</Form.Label>
             <Form.Control
@@ -68,9 +60,9 @@ const EditForm = ({
               onChange={handleChange}
               required
             >
-              <option value="P0">P0</option>
-              <option value="P1">P1</option>
-              <option value="P2">P2</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="status">

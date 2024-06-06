@@ -5,6 +5,7 @@ import TaskList from "./TaskList";
 import user from "./user.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 
 import "../style/style.css";
 
@@ -18,6 +19,8 @@ const Dashboard = () => {
 
   const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
 
   // Load tasks from local storage when component mounts
   useEffect(() => {
@@ -42,7 +45,12 @@ const Dashboard = () => {
   };
 
   // console.log(tasks);
-
+  const handleLogout = () => {
+    // Clear current user data from Redux store and local storage
+    dispatch({ type: "LOGOUT" });
+    // Redirect to login page
+    navigate('/login');
+  };
   return (
     <div className="dashboard">
       <nav className="container navbar navbar-light  p-4">
@@ -53,6 +61,8 @@ const Dashboard = () => {
           Task Board
         </h1>
         <img src={user} className="user" alt="Profile Logo" />
+        <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+
       </nav>
       <div className="  box  ml-2 mr-2">
         <div className="filter-section  p-2 ml-2 mr-2">
@@ -67,16 +77,7 @@ const Dashboard = () => {
 
           {/* Filter functionality: Priority and Assignee */}
           <div className="row  ">
-            <div className="col">
-              <input
-                type="text"
-                id="assigneeFilter"
-                placeholder="Assignee Name"
-                value={assigneeFilter}
-                onChange={(e) => setAssigneeFilter(e.target.value)}
-                className="form-control filter-input mb-2 dynamic-width"
-              />
-            </div>
+         
             <div className="col">
               <select
                 id="priorityFilter"
@@ -85,9 +86,9 @@ const Dashboard = () => {
                 className="form-control filter-dropdown mb-2 dynamic-width "
               >
                 <option value="">Priority ▼</option>
-                <option value="P0">P0</option>
-                <option value="P1">P1</option>
-                <option value="P2">P2</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
               </select>
             </div>
           </div>
@@ -137,7 +138,7 @@ const Dashboard = () => {
         {/* Cards section with horizontal scrolling */}
         <TaskList
           tasks={tasks}
-          assigneeFilter={assigneeFilter}
+          // assigneeFilter={assigneeFilter}
           priorityFilter={priorityFilter}
         />
 
